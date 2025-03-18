@@ -3,7 +3,550 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Abaz portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./style.css" rel="stylesheet" />
+
+    <script>
+      // Add a custom color using Tailwind's configuration
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              customBlue: "#121212", // Replace this with your custom color code
+              fadeBlack: "#1E1E1E",
+              customGray: "#D4D4D4",
+              yellow: "#F3A53B",
+              darkGray: "#383838",
+              offwhite: "#F5F5F5",
+              A3grey: "#A3A3A3",
+            },
+            fontFamily: {
+              bricolage: ['"Bricolage Grotesque"', "sans-serif"],
+              recoleta: ["Recoleta", "sans-serif"],
+            },
+
+            screens: {
+              md: "900px", // Customizes the `md` breakpoint to start at 900px
+            },
+
+            backgroundImage: {
+              "background-pattern": "url('./Assets/images/Mask group (1).svg')",
+              "background-pattern-mobile":
+                "url('./Assets/images/Mask group (2).svg')",
+              "Case-study-img1": "url('./Assets/images/Frame 1000002316.svg')",
+              "Case-study-img2":
+                "url('./Assets/images/Frame 1000002316 (2).svg')",
+              "Case-study-img3":
+                "url('./Assets/images/Frame 1000002316 (6).svg')",
+              "Case-study-img4":
+                "url('./Assets/images/Frame 1000002316 (3).svg')",
+              "Case-study-img5":
+                "url('./Assets/images/Frame 1000002316 (5).svg')",
+            },
+          },
+        },
+      };
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   </head>
-  <body></body>
+
+  <body class="bg-customBlue">
+    <script src="./main.js"></script>
+    <div
+      id="preloader"
+      class="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-customBlue z-50"
+    >
+      <p class="text-A3grey font-bricolage text-2xl font-bold">10%</p>
+    </div>
+
+    <header
+      class="flex flex-col items-center mb-[5%] h-[100vh] md:pb-px page-content opacity-0"
+    >
+      <nav class="flex justify-between md:w-[85%] w-[90%] pt-8 pb-8">
+        <img src="./Assets/images/logo (2).svg" class="w-[80px]" alt="" />
+        <div class="md:flex items-center justify-between gap-4 hidden">
+          <a
+            href="https://drive.google.com/drive/folders/13KdUmsdD7zBmO6n8oQpnf10jPHdjB21l?usp=drive_link"
+            class="text-A3grey md:flex flex-shrink-0 font-bricolage text-base md:transition-transform duration-300 origin-centertext-xl"
+            target="_blank"
+            rel="noopener noreferrer"
+            >My Resume</a
+          >
+          <a
+            href="mailto:abasifreke55@gmail.com"
+            class="text-A3grey border border-white py-3 px-6 rounded-full font-bricolage w-full text-center h-full text-base md:text-xl"
+            >Let's Talk</a
+          >
+        </div>
+        <!-- <img src="./Assets/images/menu.svg" alt="" class="" /> -->
+        <div
+          class="hamburger flex flex-col items-center justify-between md:hidden w-[30px] h-[20px]"
+        >
+          <div
+            class="bar w-full h-[4px] rounded-lg transition-transform duration-300 origin-center bg-A3grey"
+          ></div>
+          <div
+            class="bar w-full h-[4px] rounded-lg transition-transform duration-300 origin-center bg-A3grey"
+          ></div>
+          <div
+            class="bar w-full h-[4px] rounded-lg transition-transform duration-300 origin-center bg-A3grey"
+          ></div>
+        </div>
+      </nav>
+      <div
+        class="hidden flex-col items-center justify-between gap-4 md:hidden mobile-nav-list"
+      >
+        <a
+          href=""
+          class="text-A3grey md:flex flex-shrink-0 font-bricolag text-base md:transition-transform duration-300 origin-centertext-xl"
+          >My Resume</a
+        >
+        <a
+          href=""
+          class="text-A3grey border border-white py-3 px-6 rounded-full font-bricolage w-full text-center h-full text-base md:text-xl"
+          >Let's Talk</a
+        >
+      </div>
+
+      <div class="md:w-[85%] w-[90%] flex flex-col flex-grow justify-center">
+        <div class="w-[100%] flex flex-col justify-between">
+          <div class="w-full mb-4">
+            <img
+              src="./Assets/images/Group 1000002494.svg"
+              alt="heroImage"
+              class="w-[8%] min-w-[70px]"
+            />
+          </div>
+          <p class="font-bricolage text-A3grey mb-4 text-base md:text-xl">
+            Hello There, I'm
+            <span class="font-semibold text-customGray">Abasifreke</span> and I
+            am a...
+          </p>
+          <!-- <h1 class="text-white text-9xl">UX Designer</h1> -->
+          <img class="my-8" src="./Assets/images/heroImage.svg" alt="" />
+          <div
+            class="md:flex md:justify-between md:flex-row flex-col md:items-start"
+          >
+            <div
+              class="h-px bg-darkGray md:w-[35%] w-full md:mb-px md:mt-4 mb-5"
+            ></div>
+            <div class="md:w-[60%] font-white">
+              <p
+                class="text-A3grey font-bricolage text-base md:text-xl leading-normal xl:leading-8"
+              >
+                As a strategic design professional, I specialize in designing
+                creative and delightful user experiences through innovative
+                design thinking and value-driven methodology. My approach
+                seamlessly integrates user-centered design principles with
+                business intelligence, creating meaningful digital solutions
+                that drive both user satisfaction and organizational growth
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section
+      class="flex items-center flex-col wrapper mt-[20%] md:mt-[10%] mb-[20%] md:bg-background-pattern bg-cover h-[100vh] page-content opacity-0"
+      id="case-studies"
+    >
+      <div class="md:w-[85%] w-[90%] mb-14 xl:mb-20 pinn">
+        <p
+          class="text-customGray text-left font-recoleta font-semibold text-3xl md:text-5xl"
+        >
+          Selected Case Studies
+        </p>
+      </div>
+      <div
+        class="flex md:w-[85%] w-[90%] justify-center md:justify-between h-[100%] relative"
+      >
+        <!-- <div></div> -->
+        <div class="hidden md:flex flex-col pagination w-[5%]">
+          <div class="w-3 mb-[10px] h-3 bg-yellow rounded-full"></div>
+          <!-- Active -->
+          <div class="w-3 mb-[10px] h-3 bg-fadeBlack rounded-full"></div>
+          <!-- Non-active -->
+          <div class="w-3 mb-[10px] h-3 bg-fadeBlack rounded-full"></div>
+          <!-- Non-active -->
+          <div class="w-3 mb-[10px] h-3 bg-fadeBlack rounded-full"></div>
+          <!-- Non-active -->
+          <div class="w-3 mb-[10px] h-3 bg-fadeBlack rounded-full"></div>
+          <!-- Non-active -->
+        </div>
+
+        <div class="w-[100%] md:w-[90%] relative flex flex-col">
+          <div
+            class="bg-fadeBlack md:pt-8 mb:pb-5 pt-6 pb-4 pb-2 pb-2 w-[100%] rounded-lg case-study absolute h-[85vh] md:h-[100vh] flex flex-col justify-center items-stretch flex-1 right-0"
+          >
+            <div class="mb-4 flex md:mx-12 mx-6">
+              <div class="">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  Wellness
+                </p>
+              </div>
+              <div class="border-x border-darkGray mx-2 px-2">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  Health
+                </p>
+              </div>
+              <div class="">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  UX Strategy
+                </p>
+              </div>
+            </div>
+
+            <h4
+              class="text-customGray mb-4 font-recoleta text-2xl md:mx-12 mx-6 lg:max-w-[60vw]"
+            >
+              Mental Power - A Wellness and Self Improvement Application
+            </h4>
+            <p
+              class="text-A3grey font-bricolage text-base md:text-xl w-[90%] max-w-[80vw] md:max-w-[70vw] lg:max-w-[60vw] md:mx-12 mx-6 mb-4"
+            >
+              The mental power application is a self improvement application
+              that combines the capabilities of three synergistic apps,
+              empowering users with globally recognised techniques to create,
+              transform, or enhance their realities.
+            </p>
+            <a
+              class="text-yellow mb-6 font-recoleta md:mx-12 mx-6 text-base md:text-xl"
+              href="./pages/mental-power-page.html"
+              >View Case Study</a
+            >
+
+            <div
+              class="flex-1 flex items-center justify-center md:mx-5 mx-4 bg-Case-study-img1 bg-cover bg-center rounded-lg cursor-pointer"
+              onclick="window.location.href='./pages/mental-power-page.html' "
+            ></div>
+          </div>
+
+          <div
+            class="bg-fadeBlack md:pt-8 mb:pb-5 pt-6 pb-4 w-[100%] rounded-lg case-study absolute h-[85vh] md:h-[100vh] flex flex-col items-stretch justify-center flex-1 right-0"
+          >
+            <div class="mb-4 flex md:mx-12 mx-6">
+              <div class="">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  Social
+                </p>
+              </div>
+              <div class="border-x border-darkGray mx-2 px-2">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  Blockchain
+                </p>
+              </div>
+              <div class="">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  Web3
+                </p>
+              </div>
+            </div>
+
+            <h4
+              class="text-customGray mb-4 font-recoleta text-2xl md:mx-12 mx-6 lg:max-w-[60vw]"
+            >
+              Funge Web App - A Social NFT Trading Platform
+            </h4>
+            <!-- <div class="w-[100%] md:w-[75%] md:mx-10 mx-6 mb-4 mb-2"> -->
+            <p
+              class="text-A3grey font-bricolage text-base md:text-xl w-[90%] max-w-[70vw] lg:max-w-[60vw] md:mx-12 mx-6 mb-4"
+            >
+              Funge Platform is a social NFT marketplace to buy, sell and create
+              NFTs seamlessly and It is powered by the polygon blockchain for
+              ultra-low gas fees.
+            </p>
+            <!-- </div> -->
+            <a
+              class="text-yellow mb-6 font-recoleta md:mx-12 mx-6 text-base md:text-xl"
+              href="./pages/Funge-web-app-page.html"
+              >View Case Study</a
+            >
+            <div
+              class="flex-1 flex items-center justify-center md:mx-5 mx-4 bg-Case-study-img2 bg-cover bg-center rounded-lg cursor-pointer"
+              onclick="window.location.href='./pages/Funge-web-app-page.html' "
+            ></div>
+          </div>
+
+          <div
+            class="bg-fadeBlack md:pt-8 mb:pb-5 pt-6 pb-4 w-[100%] rounded-lg case-study absolute h-[85vh] md:h-[100vh] flex flex-col items-stretch flex-1 justify-center right-0"
+          >
+            <div class="mb-4 flex md:mx-12 mx-6">
+              <div class="">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  Augmented Reality
+                </p>
+              </div>
+              <div class="border-x border-darkGray mx-2 px-2">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  NFTs.
+                </p>
+              </div>
+              <div class="">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  Web3
+                </p>
+              </div>
+            </div>
+
+            <h4
+              class="text-customGray mb-4 font-recoleta text-2xl md:mx-12 mx-6 lg:max-w-[60vw]"
+            >
+              Quarky MVP Design - An Interactive Augmented Reality Experience
+              for NFTs
+            </h4>
+
+            <p
+              class="text-A3grey font-bricolage text-base md:text-xl w-[90%] max-w-[80vw] md:max-w-[70vw] lg:max-w-[60vw] md:mx-12 mx-6 mb-4"
+            >
+              Quarky is a new way of interacting with art. It leverages
+              augmented reality (AR) to create an immersive experience for the
+              interaction of NFTs.
+            </p>
+
+            <a
+              class="text-yellow mb-6 font-recoleta md:mx-12 mx-6 text-base md:text-xl"
+              href="./pages/Quarky-page.html"
+              >View Case Study</a
+            >
+
+            <div
+              class="flex-1 flex items-center justify-center md:mx-5 mx-4 bg-Case-study-img3 bg-cover bg-center rounded-lg cursor-pointer"
+              onclick="window.location.href='./pages/Quarky-page.html' "
+            ></div>
+          </div>
+
+          <div
+            class="bg-fadeBlack md:pt-8 mb:pb-5 pt-6 pb-4 w-full rounded-lg case-study absolute h-[85vh] md:h-[100vh] flex items-stretch flex-col flex-1 right-0"
+          >
+            <div
+              class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center rounded-lg"
+            ></div>
+
+            <div class="absolute inset-0 flex items-center justify-center">
+              <p
+                class="text-white text-2xl md:text-3xl font-recoleta text-customGray font-bold"
+              >
+                Coming Soon
+              </p>
+            </div>
+            <div class="mb-4 flex md:mx-12 mx-6">
+              <div class="">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  SaaS
+                </p>
+              </div>
+              <div class="border-x border-darkGray mx-2 px-2">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  B2B
+                </p>
+              </div>
+              <div class="">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  Fintech
+                </p>
+              </div>
+            </div>
+
+            <h4
+              class="text-customGray mb-4 font-recoleta text-2xl md:mx-12 mx-6 lg:max-w-[60vw]"
+            >
+              Sudo Programmable Card Issuing Infrastructure - A B2B SaaS
+              Platform Solution
+            </h4>
+            <!-- <div class="w-[100%] md:w-[75%] md:mx-10 mx-6 mb-4"> -->
+            <p
+              class="text-A3grey font-bricolage text-base md:text-xl w-[90%] max-w-[80vw] md:max-w-[70vw] md:mx-12 mx-6 mb-4 lg:max-w-[60vw]"
+            >
+              Sudo Africa provides an infrastructure for businesses and other
+              fintechs and financial institutions to issue programmable cards as
+              well as facilitate payments.
+            </p>
+            <!-- </div> -->
+            <a
+              class="text-yellow mb-6 font-recoleta md:mx-12 mx-6 text-base md:text-xl"
+              href=""
+              >View Case Study</a
+            >
+
+            <div
+              class="flex-1 flex items-center justify-center md:mx-5 mx-4 bg-Case-study-img4 bg-cover bg-center rounded-lg cursor-pointer"
+              onclick="window.location.href='./pages/Funge-web-app-page.html' "
+            ></div>
+          </div>
+
+          <div
+            class="bg-fadeBlack md:pt-8 mb:pb-5 pt-6 pb-4 w-[100%] rounded-lg case-study absolute h-[85vh] md:h-[100vh] flex flex-col items-stretch flex-1 right-0"
+          >
+            <div
+              class="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center rounded-lg"
+            ></div>
+
+            <div class="absolute inset-0 flex items-center justify-center">
+              <p
+                class="text-white text-2xl md:text-3xl font-recoleta text-customGray font-bold"
+              >
+                Coming Soon
+              </p>
+            </div>
+            <div class="mb-4 flex md:mx-12 mx-6">
+              <div class="">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  Artificial Intelligence
+                </p>
+              </div>
+              <div class="border-x border-darkGray mx-2 px-2">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  Community
+                </p>
+              </div>
+              <div class="">
+                <p
+                  class="text-customGray font-bricolage font-customGray text-xs md:text-base"
+                >
+                  Lean UX.
+                </p>
+              </div>
+            </div>
+
+            <h4
+              class="text-customGray mb-4 font-recoleta text-2xl md:mx-12 mx-6 lg:max-w-[60vw]"
+            >
+              AI Powered Web Application for Digital Creators
+            </h4>
+
+            <p
+              class="text-A3grey font-bricolage text-base md:text-xl w-[90%] max-w-[80vw] md:max-w-[70vw] lg:max-w-[60vw] md:mx-12 mx-6 mb-4"
+            >
+              Bai AI is an AI powered platform that allows creators to create
+              digital personas of themselves to interact with their audiences
+              and communities.
+            </p>
+
+            <a
+              class="text-yellow mb-6 font-recoleta md:mx-12 mx-6 text-base md:text-xl"
+              href="#"
+              >View Case Study</a
+            >
+
+            <div
+              class="flex-1 flex items-center justify-center md:mx-5 mx-4 bg-Case-study-img5 bg-cover bg-center rounded-lg cursor-pointer"
+              onclick="window.location.href='#' "
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- pb-[25%] -->
+
+    <section
+      class="w-full justify-center items-center flex md:mb-[10%] mb-[20%] page-content opacity-0"
+    >
+      <div
+        class="md:w-[85%] w-[90%] px-2 py-2 bg-fadeBlack relative flex flex-col items-center rounded-lg"
+      >
+        <img
+          src="./Assets/images/Mask group.svg"
+          class="absolute inset-0 w-[100%] h-[100%] object-center mx-auto my-auto sm:hidden md:block"
+          alt=""
+        />
+        <img
+          src="./Assets/images/Mask group (3).svg"
+          class="absolute inset-0 w-[100%] h-[100%] object-center mx-auto my-auto md:hidden"
+          alt=""
+        />
+        <div
+          class="relative flex flex-col items-center justify-center z-10 my-12 w-[70%]"
+        >
+          <div class="w-[65vw]">
+            <p
+              class="text-customGray font-recoleta text-2xl md:text-5xl text-center mb-8 md:leading-[1.5]"
+            >
+              Got a project, an idea out of the wild, a collaboaration, want to
+              talk about design, innovation, strategy?
+            </p>
+          </div>
+
+          <a
+            href="mailto:abasifreke55@gmail.com"
+            class="text-A3grey border border-white px-10 py-4 md:px-16 md:py-6 rounded-full font-bricolage text-center font-semibold text-xl md:text-lg w-auto md:w-fit"
+            >Let's Talk</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="flex flex-col items-center border-t border-darkGray page-content opacity-0"
+    >
+      <div
+        class="flex justify-between md:w-[85%] w-[90%] md:items-center my-12 flex-col md:flex-row"
+      >
+        <p class="text-A3grey font-bricolage text-base md:text-xl">
+          ©abasifreke emmanuel all rights reserved.
+        </p>
+
+        <div class="my-8 md:my-0">
+          <p class="text-[#737373] text-xs md:text-base">Send a Mail</p>
+          <a
+            class="text-A3grey font-bricolage underline text-base md:text-xl"
+            href="mailto:abasifreke55@gmail.com"
+            >abasifreke55@gmail.com</a
+          >
+        </div>
+        <div>
+          <p class="text-[#737373] text-xs md:text-base">My Socials</p>
+          <div>
+            <a
+              class="text-A3grey font-bricolage underline font-light text-base md:text-xl"
+              href="https://www.instagram.com/abazmmanuel/"
+              >instagram.</a
+            >
+            <a
+              class="text-A3grey font-bricolage underline font-light text-base md:text-xl"
+              href="https://twitter.com/abazmmanuel"
+              >twitter.</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
