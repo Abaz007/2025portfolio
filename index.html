@@ -26,6 +26,7 @@
               darkGray: "#383838",
               offwhite: "#F5F5F5",
               A3grey: "#A3A3A3",
+              charcoal: "#262626",
             },
             fontFamily: {
               bricolage: ['"Bricolage Grotesque"', "sans-serif"],
@@ -60,7 +61,7 @@
   </head>
 
   <body class="bg-customBlue">
-    <script src="./main.js"></script>
+  
     <div
       id="preloader"
       class="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-customBlue z-50"
@@ -69,7 +70,7 @@
     </div>
 
     <header
-      class="flex flex-col items-center mb-[5%] h-[100vh] md:pb-px page-content opacity-0"
+      class="flex flex-col items-center min-h-screen page-content opacity-0"
     >
       <nav class="flex justify-between md:w-[85%] w-[90%] pt-8 pb-8">
         <img src="./Assets/images/logo (2).svg" class="w-[80px]" alt="" />
@@ -102,6 +103,8 @@
           ></div>
         </div>
       </nav>
+
+      <!-- mobile-navigation -->
       <div
         class="hidden flex-col items-center justify-between gap-4 md:hidden mobile-nav-list"
       >
@@ -117,41 +120,52 @@
         >
       </div>
 
-      <div class="md:w-[85%] w-[90%] flex flex-col flex-grow justify-center">
-        <div class="w-[100%] flex flex-col justify-between">
-          <div class="w-full mb-4">
+      <!-- hero -->
+      <div
+        class="md:w-[85%] w-[90%] flex flex-col flex-grow items-center justify-center"
+      >
+        <!-- Profile Image -->
+        <div
+          class="mb-8 md:mb-12 w-full sm:max-w-[400px] md:w-[60%] md:max-w-none lg:w-[55%] lg:max-w-none"
+        >
+          <div
+            class="w-[40%] md:w-[50%] h-auto rounded-2xl overflow-hidden"
+          >
             <img
-              src="./Assets/images/Group 1000002494.svg"
-              alt="heroImage"
-              class="w-[8%] min-w-[70px]"
+              src="./Assets/images/Group 1000002504.svg"
+              alt="Abasifreke Emmanuel"
+              class="w-full h-auto object-contain"
             />
           </div>
-          <p class="font-bricolage text-A3grey mb-4 text-base md:text-xl">
-            Hello There, I'm
-            <span class="font-semibold text-customGray">Abasifreke</span> and I
-            am a...
-          </p>
-          <!-- <h1 class="text-white text-9xl">UX Designer</h1> -->
-          <img class="my-8" src="./Assets/images/heroImage.svg" alt="" />
-          <div
-            class="md:flex md:justify-between md:flex-row flex-col md:items-start"
+        </div>
+
+        <!-- Main Content  border border-red-500 -->
+        <div
+          class="w-full sm:max-w-[400px] md:w-[60%] md:max-w-none lg:w-[55%] lg:max-w-none text-left"
+        >
+          <!-- Main Heading -->
+          <h1
+            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-A3grey lg:leading-[1.2] mb-6 md:mb-8 text-balance font-recoleta"
           >
-            <div
-              class="h-px bg-darkGray md:w-[35%] w-full md:mb-px md:mt-4 mb-5"
-            ></div>
-            <div class="md:w-[60%] font-white">
-              <p
-                class="text-A3grey font-bricolage text-base md:text-xl leading-normal xl:leading-8"
-              >
-                As a strategic design professional, I specialize in designing
-                creative and delightful user experiences through innovative
-                design thinking and value-driven methodology. My approach
-                seamlessly integrates user-centered design principles with
-                business intelligence, creating meaningful digital solutions
-                that drive both user satisfaction and organizational growth
-              </p>
-            </div>
-          </div>
+            I'm Abasifreke Emmanuel, a
+            <span
+              class="underline decoration-dotted underline-offset-4 sm:underline-offset-6 lg:underline-offset-8"
+              >multidisciplinary designer</span
+            >
+            who is shaping the world by crafting delightful experiences
+          </h1>
+
+          <!-- Description -->
+          <p
+            class="text-gray-400 text-base md:text-xl max-w-xl lg:max-w-2xl leading-relaxed"
+          >
+            As a strategic design professional, I specialize in designing
+            creative and delightful user experiences through innovative design
+            thinking and value-driven methodologies. My approach integrates
+            user-centered design principles with business intelligence, creating
+            meaningful digital solutions that drive both user satisfaction and
+            organizational growth.
+          </p>
         </div>
       </div>
     </header>
@@ -226,14 +240,14 @@
               transform, or enhance their realities.
             </p>
             <a
-              class="text-yellow mb-6 font-recoleta md:mx-12 mx-6 text-base md:text-xl"
+              class="text-yellow mb-6 font-recoleta md:mx-12 mx-6 text-base md:text-xl" onclick="openDrawer(event, this.href)"
               href="./pages/mental-power-page.html"
               >View Case Study</a
             >
 
             <div
               class="flex-1 flex items-center justify-center md:mx-5 mx-4 bg-Case-study-img1 bg-cover bg-center rounded-lg cursor-pointer"
-              onclick="window.location.href='./pages/mental-power-page.html' "
+              onclick="openDrawer(event, this.href='./pages/mental-power-page.html')"
             ></div>
           </div>
 
@@ -279,13 +293,13 @@
             </p>
             <!-- </div> -->
             <a
-              class="text-yellow mb-6 font-recoleta md:mx-12 mx-6 text-base md:text-xl"
+              class="text-yellow mb-6 font-recoleta md:mx-12 mx-6 text-base md:text-xl" onclick="openDrawer(event, this.href)"
               href="./pages/Funge-web-app-page.html"
               >View Case Study</a
             >
             <div
               class="flex-1 flex items-center justify-center md:mx-5 mx-4 bg-Case-study-img2 bg-cover bg-center rounded-lg cursor-pointer"
-              onclick="window.location.href='./pages/Funge-web-app-page.html' "
+              onclick="openDrawer(event, this.href= './pages/Funge-web-app-page.html')"
             ></div>
           </div>
 
@@ -332,14 +346,14 @@
             </p>
 
             <a
-              class="text-yellow mb-6 font-recoleta md:mx-12 mx-6 text-base md:text-xl"
+              class="text-yellow mb-6 font-recoleta md:mx-12 mx-6 text-base md:text-xl" onclick="openDrawer(event, this.href)"
               href="./pages/Quarky-page.html"
               >View Case Study</a
             >
 
             <div
               class="flex-1 flex items-center justify-center md:mx-5 mx-4 bg-Case-study-img3 bg-cover bg-center rounded-lg cursor-pointer"
-              onclick="window.location.href='./pages/Quarky-page.html' "
+               onclick="openDrawer(event, this.href='./pages/Quarky-page.html')"
             ></div>
           </div>
 
@@ -384,8 +398,7 @@
             <h4
               class="text-customGray mb-4 font-recoleta text-2xl md:mx-12 mx-6 lg:max-w-[60vw]"
             >
-              Designing Africa's Largest Open API Platform- A B2B SaaS
-              Solution
+              Designing Africa's Largest Open API Platform- A B2B SaaS Solution
             </h4>
             <!-- <div class="w-[100%] md:w-[75%] md:mx-10 mx-6 mb-4"> -->
             <p
@@ -513,9 +526,531 @@
       </div>
     </section>
 
+    <section class="flex flex-col items-center jusfity-center mb-20 ">
+      <div class="md:w-[85%] w-[90%]">
+        <!-- Header -->
+        <div class="mb-12 w-full">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-customGray mb-4 text-balance font-recoleta"
+          >
+            Clients I've worked with
+          </h2>
+        </div>
+
+        <!-- Grid -->
+        <div class="flex flex-wrap gap-4 md:gap-6 justify-start w-full">
+          <!-- Client Cards -->
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/toptal-logo.jpg"
+                alt="Toptal logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Toptal</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/terumo-medical-logo.jpg"
+                alt="Terumo logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Terumo</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/oasis-ai-logo.jpg"
+                alt="Oasis AI logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Oasis AI</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/holland-america-cruise-logo.jpg"
+                alt="Holland America logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Holland America</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/dreamsave-logo.jpg"
+                alt="Dreamsave logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Dreamsave</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/e-surgery-medical-logo.jpg"
+                alt="E-Surgery logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >E-Surgery</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/xceed-365-logo.jpg"
+                alt="Xceed 365 logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Xceed 365</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/trendri-logo.jpg"
+                alt="Trendri logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Trendri</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/go54-logo.jpg"
+                alt="GO54 logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >GO54</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/unicef-logo.png"
+                alt="UNICEF logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >UNICEF</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/evalart-logo.jpg"
+                alt="Evalart logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Evalart</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/optic-arena-gaming-logo.jpg"
+                alt="Optic Arena logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Optic Arena</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/vdm-health-medical-logo.jpg"
+                alt="VDM Health logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >VDM Health</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/pocket-town-hall-logo.jpg"
+                alt="Pocket Town hall logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Pocket Town hall</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/usaid-government-logo.jpg"
+                alt="USAID logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >USAID</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/pocket-bud-logo.jpg"
+                alt="Pocket Bud logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Pocket Bud</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/placeholder.svg?height=32&width=32"
+                alt="Melanated Futures Group logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Melanated Futures Group</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/placeholder.svg?height=32&width=32"
+                alt="Indeed logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Indeed</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/placeholder.svg?height=32&width=32"
+                alt="Institute for Excellence in Writing logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Institute for Excellence in Writing</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/placeholder.svg?height=32&width=32"
+                alt="Quarky NFT logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Quarky NFT</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/placeholder.svg?height=32&width=32"
+                alt="Motionwares logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Motionwares</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/placeholder.svg?height=32&width=32"
+                alt="Coyani logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Coyani</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/placeholder.svg?height=32&width=32"
+                alt="Mental Power logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Mental Power</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/placeholder.svg?height=32&width=32"
+                alt="Funge NFT logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Funge NFT</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/placeholder.svg?height=32&width=32"
+                alt="Bai AI logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Bai AI</span
+            >
+          </div>
+
+          <div
+            class="client-card inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-charcoal bg-card/50 hover:bg-card hover:border-border"
+          >
+            <div class="w-8 h-8 flex-shrink-0">
+              <img
+                src="/placeholder.svg?height=32&width=32"
+                alt="Zealvend logo"
+                class="client-logo w-full h-full object-contain"
+                width="32"
+                height="32"
+              />
+            </div>
+            <span class="text-sm font-medium text-customGray whitespace-nowrap"
+              >Zealvend</span
+            >
+          </div>
+
+          <!-- "...and more" indicator -->
+          <!-- "...and more" indicator -->
+          <span class="text-sm font-medium text-customGray ml-2 mt-4"
+            >...and more</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="flex flex-col items-center justify-center mb-20">
+      <div
+        class="md:w-[85%] w-[90%] flex flex-col flex-grow items-center justify-center"
+      >
+        <div
+          class="w-full sm:max-w-[400px] md:w-[60%] md:max-w-none lg:w-[55%] lg:max-w-none text-left"
+        >
+          <!-- Main Heading -->
+          <h1
+            class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-customGray lg:leading-[1.2] mb-6 md:mb-8 text-balance font-recoleta"
+          >
+            About me
+          </h1>
+          <p
+            class="text-A3grey text-base md:text-xl max-w-xl lg:max-w-2xl leading-relaxed font-bricolage"
+          >
+            The story of how I got into design is one for books (it’s been a
+            long ride from way back) but if I could summarise, it would be in
+            the words of Shakespear: “to thine own self be true.”I am a
+            multidisciplinary designer driven by curiosity and belief that great
+            design can transform how people live, work or even experience and
+            interact with the world they live in. I am that designer that
+            listens very closely to the unspoken and spoken needs of users
+            making their journeys through any experience seamless and enjoyable.
+            At the heart of it, that’s what every business desires: design that
+            feels effortless for users and impactful for organizations. Outside
+            work I do so many things and that includes, watching innovative tech
+            documentaries, traveling, exploring food, playing chess, and
+            spending time with my family, often grilling, laughing, and trading
+            witty jokes.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <footer
       class="flex flex-col items-center border-t border-darkGray page-content opacity-0"
     >
+      <div
+        class="md:w-[85%] w-[90%] mt-6 flex-col justify-start md:flex-row flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 lg:gap-16"
+      >
+        <div class="md-60%] w-full">
+          <p
+            class="text-customGray font-recoleta text-3xl md:text-4xl lg:text-5xl text-left mb-8 md:leading-[1.2]"
+          >
+           Got an interesting project? Let’s bring it to life together
+          </p>
+        </div>
+
+        <a
+          href="mailto:abasifreke55@gmail.com"
+          class="text-A3grey border border-white  px-10 py-4 md:px-16 md:py-6
+          rounded-full font-bricolage text-center 
+          text-base md:text-xl w-auto flex-shrink-0 self-start md:self-auto"
+        >
+          Let's Talk
+        </a>
+
+      </div>
+
       <div
         class="flex justify-between md:w-[85%] w-[90%] md:items-center my-12 flex-col md:flex-row"
       >
@@ -548,5 +1083,63 @@
         </div>
       </div>
     </footer>
+
+      <!-- Bottom Drawer -->
+      <!-- <div id="caseStudyDrawer"
+      class="fixed bottom-0 left-0 w-full h-[80vh] bg-fadeBlack text-white 
+      rounded-t-2xl shadow-lg transform translate-y-full transition-transform duration-500 ease-in-out z-50 overflow-y-auto">
+        <div class="p-6">
+        <button onclick="closeDrawer()" 
+        class="text-yellow font-bold mb-4 border border-yellow px-4 py-2 rounded-full">
+        Close
+        </button>
+        <div id="drawerContent"> -->
+        <!-- Case study content will be injected here -->
+        <!-- </div>
+        </div> -->
+
+        
+        
+    <div id="drawer" class="hidden fixed inset-0 z-50  scrollbar-hide   ">
+          
+          <!-- Overlay -->
+          <div onclick="closeDrawer()" class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+
+      <!-- Drawer -->
+      <div id="drawer-panel"
+          class="absolute bottom-0 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]
+          bg-customBlue w-full md:w-[70%] h-[90%] left-1/2
+          rounded-t-3xl shadow-lg transform -translate-x-1/2
+          transform translate-y-full duration-300 
+      flex flex-col">
+
+        <!-- Header -->
+        <div class="sticky top-0 bg-customBlue z-10 rounded-t-3xl">
+          <div class="flex items-center justify-between px-4 pt-3 pb-2">
+            <!-- Drag handle -->
+            <div class="absolute left-1/2 -translate-x-1/2 top-3">
+              <div class="w-12 h-1.5 bg-fadeBlack rounded-full"></div>
+            </div>
+
+            <!-- Exit button -->
+            <img src="./Assets/images/Frame 51.svg"  onclick="closeDrawer()"  class="ml-auto text-2xl font-bold cursor-pointer" alt="exit">
+          </div>
+        </div>
+
+        <!-- Scrollable Content -->
+        <div id="drawer-content" 
+            class="flex-1 overflow-y-auto p-6 scrollbar-hide">
+        </div>
+      </div>
+    </div>
+
+
+        <!-- <div id="drawer" class="hidden fixed bottom-0 right-0 w-full md:w-[70%] h-[70%] bg-customBlue overflow-y-auto z-99">
+         
+          <div id="drawer-content" class="p-6"></div>
+        </div> -->
+      </div>
+        <script src="./main.js"></script>
   </body>
 </html>

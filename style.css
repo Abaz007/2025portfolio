@@ -29,3 +29,22 @@
 .hamburger.trigger .bar:last-child {
   transform: rotate(45deg) translate(-5px, -6px);
 }
+
+/* Hide scrollbar but allow scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* body.overflow-hidden {
+  overflow: hidden;
+  height: 100vh;
+} */
+body.overflow-hidden {
+  position: fixed;
+  width: 100%;
+  overflow: hidden;
+}

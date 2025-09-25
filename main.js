@@ -164,3 +164,65 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// function openDrawer(event, url) {
+//   event.preventDefault();
+//   const drawer = document.getElementById("drawer");
+//   const drawerContent = document.getElementById("drawer-content");
+
+//   fetch(url)
+//     .then((res) => res.text())
+//     .then((html) => {
+//       // Grab just the <body> part if your file has full HTML
+//       const parser = new DOMParser();
+//       const doc = parser.parseFromString(html, "text/html");
+//       const content = doc.querySelector("main") || doc.body;
+//       drawerContent.innerHTML = content.innerHTML;
+//       drawer.classList.remove("hidden");
+//     })
+//     .catch((err) => {
+//       drawerContent.innerHTML = "<p>Failed to load content.</p>";
+//     });
+// }
+
+// function closeDrawer() {
+//   document.getElementById("drawer").classList.add("hidden");
+// }
+
+function openDrawer(event, url) {
+  if (event) event.preventDefault();
+
+  const drawer = document.getElementById("drawer");
+  const panel = document.getElementById("drawer-panel");
+  const drawerContent = document.getElementById("drawer-content");
+
+  drawer.classList.remove("hidden");
+  document.body.classList.add("overflow-hidden"); // prevent page scroll
+
+  // Slide up
+  setTimeout(() => panel.classList.remove("translate-y-full"), 10);
+
+  // Load content
+  drawerContent.innerHTML = "<p class='p-4 text-white'>Loading...</p>";
+
+  if (url) {
+    fetch(url)
+      .then((res) => res.text())
+      .then((html) => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        const content = doc.querySelector("main") || doc.body;
+        drawerContent.innerHTML = content.innerHTML;
+      });
+  }
+}
+
+function closeDrawer() {
+  const panel = document.getElementById("drawer-panel");
+  panel.classList.add("translate-y-full");
+
+  setTimeout(() => {
+    document.getElementById("drawer").classList.add("hidden");
+    document.body.classList.remove("overflow-hidden"); // restore page scroll
+  }, 300);
+}
