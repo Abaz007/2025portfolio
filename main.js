@@ -190,20 +190,30 @@ document.addEventListener("DOMContentLoaded", () => {
 // }
 
 function openDrawer(event, url) {
-  if (event) event.preventDefault();
+  if (event) {
+    event.stopPropagation();
+    event.preventDefault();
+  }
 
   const drawer = document.getElementById("drawer");
   const panel = document.getElementById("drawer-panel");
   const drawerContent = document.getElementById("drawer-content");
 
   drawer.classList.remove("hidden");
-  document.body.classList.add("overflow-hidden"); // prevent page scroll
+
+  // Freeze background scroll (store scroll position)
+  const scrollY = window.scrollY;
+  document.body.style.position = "fixed";
+  document.body.style.top = `-${scrollY}px`;
+  document.body.style.left = "0";
+  document.body.style.right = "0";
+  // document.body.classList.add("overflow-hidden"); // prevent page scroll
 
   // Slide up
   setTimeout(() => panel.classList.remove("translate-y-full"), 10);
 
   // Load content
-  drawerContent.innerHTML = "<p class='p-4 text-white'>Loading...</p>";
+  // drawerContent.innerHTML = "<p class='p-4 text-white'>Loading...</p>";
 
   if (url) {
     fetch(url)
@@ -221,8 +231,16 @@ function closeDrawer() {
   const panel = document.getElementById("drawer-panel");
   panel.classList.add("translate-y-full");
 
+  // Restore scroll position
+  const scrollY = document.body.style.top;
   setTimeout(() => {
     document.getElementById("drawer").classList.add("hidden");
-    document.body.classList.remove("overflow-hidden"); // restore page scroll
+
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+
+    window.scrollTo(0, parseInt(scrollY || "0") * -1); // restore original scroll
   }, 300);
 }
