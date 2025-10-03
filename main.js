@@ -199,23 +199,25 @@ function openDrawer(event, url) {
   const panel = document.getElementById("drawer-panel");
   const drawerContent = document.getElementById("drawer-content");
 
-  drawer.classList.remove("hidden");
-
-  // Freeze background scroll (store scroll position)
+  // Save scroll position
   const scrollY = window.scrollY;
-  document.body.style.position = "fixed";
-  document.body.style.top = `-${scrollY}px`;
-  document.body.style.left = "0";
-  document.body.style.right = "0";
-  // document.body.classList.add("overflow-hidden"); // prevent page scroll
 
-  // Slide up
-  setTimeout(() => panel.classList.remove("translate-y-full"), 10);
+  // Freeze background scroll smoothly
+  // document.body.style.position = "fixed";
+  // document.body.style.top = `-${scrollY}px`;
+  // document.body.style.left = "0";
+  // document.body.style.right = "0";
+  // document.body.style.width = "100%";
 
-  // Load content
-  // drawerContent.innerHTML = "<p class='p-4 text-white'>Loading...</p>";
+  // Show drawer and trigger slide animation
+  drawer.classList.remove("hidden");
+  setTimeout(() => panel.classList.remove("translate-y-full"), 20);
 
+  // Load content dynamically
   if (url) {
+    drawerContent.innerHTML =
+      "<p class='p-4 text-white text-center'>Loading...</p>";
+
     fetch(url)
       .then((res) => res.text())
       .then((html) => {
@@ -223,24 +225,40 @@ function openDrawer(event, url) {
         const doc = parser.parseFromString(html, "text/html");
         const content = doc.querySelector("main") || doc.body;
         drawerContent.innerHTML = content.innerHTML;
+      })
+      .catch(() => {
+        drawerContent.innerHTML =
+          "<p class='p-4 text-red-400 text-center'>Failed to load content.</p>";
       });
   }
+
+  // Store scroll position for later restore
+  drawer.dataset.scrollY = scrollY;
 }
 
 function closeDrawer() {
+  const drawer = document.getElementById("drawer");
   const panel = document.getElementById("drawer-panel");
+
+  // Start slide-down animation
   panel.classList.add("translate-y-full");
 
-  // Restore scroll position
-  const scrollY = document.body.style.top;
+  // Wait for transition before hiding and restoring scroll
+  const transitionDuration = 400; // match your CSS transition (ms)
   setTimeout(() => {
-    document.getElementById("drawer").classList.add("hidden");
+    drawer.classList.add("hidden");
 
-    document.body.style.position = "";
-    document.body.style.top = "";
-    document.body.style.left = "";
-    document.body.style.right = "";
+    // Restore scroll
+    // const scrollY = parseInt(drawer.dataset.scrollY || "0");
+    // document.body.style.position = "";
+    // document.body.style.top = "";
+    // document.body.style.left = "";
+    // document.body.style.right = "";
+    // document.body.style.width = "";
 
-    window.scrollTo(0, parseInt(scrollY || "0") * -1); // restore original scroll
-  }, 300);
+    // When drawer closes
+    document.body.style.pointerEvents = "auto";
+
+    window.scrollTo(0, scrollY);
+  }, transitionDuration);
 }
